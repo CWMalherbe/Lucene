@@ -36,13 +36,19 @@
         <p>@Html.ActionLink("Update Index", "UpdateIndex", "Home", new { @class = "btn btn-default" })</p>
 
     </div>
-</div>
-<div class="row">
 
-    @using (Html.BeginForm("Search", "Home", FormMethod.Post))
-    {
-        @Html.Label("Search")
-        @Html.TextBox("Search");
-        <input type="submit" value="Search" />
-    }
+    <div class="col-md-4">
+        <h2>Search</h2>
+        @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+        {
+            @Html.Label("Search")
+            @Html.TextBox("Search");
+            <input type="submit" value="Search &raquo;" class="btn btn-default"  />
+        }
+
+    </div>
+
+    <div class="col-md-4">
+        <h2>Empty</h2>
+    </div>
 </div>

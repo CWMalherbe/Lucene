@@ -2,15 +2,17 @@
 
 @{
     ViewBag.Title = "Search";
+    int rows = 0;
 }
 
 <h2>Search</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Back to Search", "Index","Home",new { @class = "btn btn-success" })
 </p>
 <table class="table">
     <tr>
+        <th>#</th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
@@ -25,6 +27,7 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>@(rows + 1)</td>
         <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
@@ -40,6 +43,7 @@
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
+    rows++;
 }
 
 </table>

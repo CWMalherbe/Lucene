@@ -24,9 +24,11 @@ namespace Lucene.Mvc.Models
             {
                 if (_directoryTemp == null)
                     _directoryTemp = FSDirectory.Open(new DirectoryInfo(_luceneDir));
+
                 if (IndexWriter.IsLocked(_directoryTemp))
                     IndexWriter.Unlock(_directoryTemp);
                 var lockFilePath = Path.Combine(_luceneDir, "write.lock");
+
                 if (File.Exists(lockFilePath))
                     File.Delete(lockFilePath);
                 return _directoryTemp;
@@ -41,7 +43,6 @@ namespace Lucene.Mvc.Models
 
             //add new index entry
             Document doc = new Document();
-
             //add Lucene fields mapped to database fields
             doc.Add(new Field("Id", sampleData.Id.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED));
             doc.Add(new Field("Name", sampleData.Description, Field.Store.YES, Field.Index.ANALYZED));
