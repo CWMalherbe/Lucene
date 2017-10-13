@@ -29,3 +29,20 @@
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Update Lucene Index</h2>
+        <p>@Html.ActionLink("Update Index", "UpdateIndex", "Home", new { @class = "btn btn-default" })</p>
+
+    </div>
+</div>
+<div class="row">
+
+    @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+    {
+        @Html.Label("Search")
+        @Html.TextBox("Search");
+        <input type="submit" value="Search" />
+    }
+</div>
